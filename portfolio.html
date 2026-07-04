@@ -1,0 +1,46 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>持仓</title><style>
+:root{--bg:#0f1115;--card:#181b22;--fg:#e8eaed;--mut:#9aa0a8;--line:#2a2f3a;--buy:#2ecc71;--no:#e74c3c;--unc:#f1c40f;--accent:#5b9dff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.7 -apple-system,"Segoe UI","Microsoft YaHei",sans-serif}
+.wrap{max-width:960px;margin:0 auto;padding:24px 18px 64px}
+h1{font-size:24px;margin:8px 0 4px}h2{font-size:19px;margin:26px 0 8px;border-left:3px solid var(--accent);padding-left:10px}
+h3{font-size:16px;color:var(--mut);margin:18px 0 6px}
+.sub{color:var(--mut);font-size:13px;margin-bottom:18px}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:14px}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+th{background:#20242d;color:var(--mut);font-weight:600}
+tr:nth-child(even) td{background:#14171d}
+blockquote{margin:8px 0;padding:8px 12px;background:#14171d;border-left:3px solid var(--line);color:var(--mut)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:14px 0}
+.tag{display:inline-block;padding:2px 10px;border-radius:20px;font-size:13px;font-weight:700}
+.买{background:rgba(46,204,113,.15);color:var(--buy)}.不买{background:rgba(231,76,60,.13);color:var(--no)}
+.不确定{background:rgba(241,196,15,.13);color:var(--unc)}.观望{background:rgba(241,196,15,.13);color:var(--unc)}.t\?{background:#333;color:#aaa}
+.nav{display:flex;gap:14px;margin:6px 0 20px;flex-wrap:wrap}.nav a{background:var(--card);border:1px solid var(--line);padding:8px 16px;border-radius:8px}
+.foot{color:var(--mut);font-size:12px;margin-top:40px;border-top:1px solid var(--line);padding-top:12px}
+hr{border:0;border-top:1px solid var(--line);margin:18px 0}code{background:#20242d;padding:1px 5px;border-radius:4px}
+.mcard{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:13px 16px;margin:11px 0}
+.mhead{margin-bottom:8px}
+.mdate{font-weight:700;color:var(--accent);font-size:14px}
+.mb{margin:7px 0;line-height:1.8;font-size:15px;padding:6px 10px;border-left:3px solid var(--line)}
+.b-hard{border-left-color:#3a4150}
+.b-narr{border-left-color:var(--accent);background:rgba(91,157,255,.06)}
+.blab{display:inline-block;font-size:11px;font-weight:700;margin-right:8px;padding:1px 8px;border-radius:10px;vertical-align:middle}
+.b-hard .blab{background:#262b34;color:var(--mut)}
+.b-narr .blab{background:rgba(91,157,255,.18);color:#9cc2ff}
+.msrc{margin-top:9px;font-size:11px;color:#5a616b;word-break:break-all}
+.msrc a{color:#6b7686}
+.vbox{background:linear-gradient(180deg,rgba(91,157,255,.13),rgba(91,157,255,.04));border:1px solid var(--accent);border-radius:12px;padding:16px 18px;margin:4px 0 22px}
+.vlab{font-size:13px;font-weight:700;color:#9cc2ff;margin-bottom:9px}
+.vtext{line-height:1.95;font-size:15.5px}
+.vmain{margin-top:6px;padding:11px 14px;background:rgba(91,157,255,.08);border-left:3px solid var(--accent);border-radius:8px;line-height:1.9;font-size:15px}
+.vweak{margin-top:11px;padding:11px 14px;background:rgba(241,196,15,.07);border-left:3px solid var(--unc);border-radius:8px;line-height:1.9;font-size:14.5px}
+.vmean{margin-top:11px;padding:12px 14px;background:rgba(46,204,113,.10);border:1px solid rgba(46,204,113,.45);border-radius:10px;line-height:1.9;font-size:15px}
+.mlab{display:block;font-size:12px;font-weight:700;margin-bottom:6px}
+.vmain .mlab{color:#9cc2ff}.vweak .mlab{color:var(--unc)}.vmean .mlab{color:var(--buy)}
+.持有{background:rgba(91,157,255,.16);color:var(--accent)}.待成交{background:rgba(241,196,15,.13);color:var(--unc)}.已出{background:#2a2f3a;color:var(--mut)}
+.pnl-up{color:#ff6b6b;font-weight:700}.pnl-dn{color:#3ddc84;font-weight:700}
+.pstats{display:flex;gap:22px;flex-wrap:wrap;margin:4px 0 2px}
+.pstat .k{font-size:12px;color:var(--mut)}.pstat .v{font-size:18px;font-weight:700}
+.pline{font-size:13px;color:var(--mut)}
+.prule{font-size:12px;color:#5a616b;margin-top:8px;line-height:1.6}
+</style></head><body><div class="wrap"><div class="nav"><a href="index.html">总览</a><a href="market.html">大盘分析</a><a href="picks.html">选票结果</a><a href="portfolio.html">持仓</a></div><h1>持仓</h1><p class="sub">虚拟跟踪账户 · 实盘人工跟单 · 出入票由深研判定驱动（判定翻转即出票）</p><div class="card"><div class="pstats"><div class="pstat"><div class="k">本金</div><div class="v">1,000,000</div></div><div class="pstat"><div class="k">持仓市值</div><div class="v">346,450</div></div><div class="pstat"><div class="k">现金</div><div class="v">650,000</div></div><div class="pstat"><div class="k">总净值</div><div class="v">996,450</div></div><div class="pstat"><div class="k">账户收益</div><div class="v"><span class="pnl-dn">-3,550（-0.4%）</span></div></div><div class="pstat"><div class="k">持仓部分收益</div><div class="v"><span class="pnl-dn">-3,550（-7.1%）</span></div></div><div class="pstat"><div class="k">同期沪深300</div><div class="v"><span class="pnl-up">+0.68%</span></div></div><div class="pstat"><div class="k">同期中证1000</div><div class="v"><span class="pnl-dn">-0.08%</span></div></div></div></div><div class="card"><div style="font-size:13px;color:#9cc2ff;font-weight:700;margin-bottom:8px">📈 净值曲线（建池 2026-07-03 起 · 组合=账户级含现金 · 指数同起点开盘归零）</div><svg viewBox="0 0 920 300" style="width:100%;height:auto;display:block" xmlns="http://www.w3.org/2000/svg"><line x1="52" y1="272.0" x2="906" y2="272.0" stroke="#242a35" stroke-width="1"/><text x="45" y="276.0" fill="#9aa0a8" font-size="11" text-anchor="end">-0.9%</text><line x1="52" y1="207.0" x2="906" y2="207.0" stroke="#242a35" stroke-width="1"/><text x="45" y="211.0" fill="#9aa0a8" font-size="11" text-anchor="end">-0.3%</text><line x1="52" y1="142.0" x2="906" y2="142.0" stroke="#242a35" stroke-width="1"/><text x="45" y="146.0" fill="#9aa0a8" font-size="11" text-anchor="end">+0.2%</text><line x1="52" y1="77.0" x2="906" y2="77.0" stroke="#242a35" stroke-width="1"/><text x="45" y="81.0" fill="#9aa0a8" font-size="11" text-anchor="end">+0.7%</text><line x1="52" y1="12.0" x2="906" y2="12.0" stroke="#242a35" stroke-width="1"/><text x="45" y="16.0" fill="#9aa0a8" font-size="11" text-anchor="end">+1.2%</text><line x1="52" y1="162.7" x2="906" y2="162.7" stroke="#4a5160" stroke-width="1.2" stroke-dasharray="4 3"/><text x="479.0" y="292" fill="#9aa0a8" font-size="11" text-anchor="middle">07-03</text><circle cx="479.0" cy="208.1" r="3" fill="#5b9dff"><title>2026-07-03 组合 -0.36%</title></circle><circle cx="479.0" cy="75.9" r="2" fill="#8a93a3"><title>2026-07-03 沪深300 +0.68%</title></circle><circle cx="479.0" cy="172.5" r="2" fill="#c9a15a"><title>2026-07-03 中证1000 -0.08%</title></circle></svg><div style="font-size:12.5px;margin-top:8px"><span style="color:#5b9dff">— 组合（-0.36%）</span> &nbsp; <span style="color:#8a93a3">— 沪深300（+0.68%）</span> &nbsp; <span style="color:#c9a15a">— 中证1000（-0.08%）</span></div></div><table><thead><tr><th>状态</th><th>票</th><th>叙事线</th><th>判定</th><th>买入</th><th>现价</th><th>盈亏</th></tr></thead><tbody><tr><td><span class="tag 持有">持有</span></td><td>688548 广钢气体</td><td class="pline">氦气结构性短缺（卡塔尔产能物理灭失3-5年不可逆）＋电子大宗气第二极</td><td>07-02</td><td>07-03 @ 50.00<br>×1,000股=50,000</td><td>46.45（07-03收）</td><td><span class="pnl-dn">-3,550（-7.1%）</span></td></tr><tr><td><span class="tag 待成交">待成交</span></td><td>688506 百利天恒</td><td class="pline">创新药出海BD兑现线旗手——全球首个双抗ADC获批</td><td>07-03</td><td>下一交易日开盘</td><td>340.00（07-03收）</td><td>待开盘成交</td></tr><tr><td><span class="tag 待成交">待成交</span></td><td>688116 天奈科技</td><td class="pline">固态电池2026量产元年——单壁碳管「唯一解」卡位核心载体</td><td>07-03</td><td>下一交易日开盘</td><td>40.01（07-03收）</td><td>待开盘成交</td></tr><tr><td><span class="tag 待成交">待成交</span></td><td>300765 石药创新</td><td class="pline">创新药出海BD线真载体（与百利天恒同线）——AZ半年两度真金BD＋突破性治疗×3；确信中等</td><td>07-03</td><td>下一交易日开盘</td><td>36.71（07-03收）</td><td>待开盘成交</td></tr><tr><td><span class="tag 待成交">待成交</span></td><td>002025 航天电器</td><td class="pline">国产算力昇腾超节点互连线真载体——华为950测试通过+小批量供货+份额20-30%+液冷独供预期；7/2崩盘日逆势创历史新高</td><td>07-03</td><td>下一交易日开盘</td><td>83.70（07-03收）</td><td>待开盘成交</td></tr><tr><td><span class="tag 待成交">待成交</span></td><td>002458 益生股份</td><td class="pline">白羽鸡引种断供线最纯载体——海外禽流感三通道锁死→2026H2父母代紧缺，益生占进口祖代42%+法国通道打通者；确信中等</td><td>07-03</td><td>下一交易日开盘</td><td>9.06（07-03收）</td><td>待开盘成交</td></tr><tr><td><span class="tag 待成交">待成交</span></td><td>301529 福赛科技</td><td class="pline">全球化Tier1拐点（墨西哥扭亏+泰国定增）×人形机器人PEEK轻量化期权（宇树线共振）；确信中等</td><td>07-03</td><td>下一交易日开盘</td><td>124.30（07-03收）</td><td>待开盘成交</td></tr></tbody></table><div class="prule">本金100万，每票预算5万。成交=判定日次一交易日开盘价（节假日/停牌自动顺延，无前视），按开盘价折最接近预算的合法股数（科创板200股起、创业/主板整百股）、以实际金额记账；高价票可人工特批上浮（如百利天恒两手）。现价=最新收盘价。出票=深研判定翻转（改写运动不再持续）触发，出票价同规则=翻转判定次一交易日开盘价。</div><div class="foot">认识浪潮选股系统 · 自动生成于 2026-07-04 05:10。仅供学习交流，非投资建议。</div></div></body></html>
